@@ -18,25 +18,34 @@ spec:
       - name: mongodb
         image: nanajanashia/k8s-demo-app:v1.0
         ports:
-        - containerPort: 3000 
+        - containerPort: 3000
         env:
-        - name: MONGO_INITDB_ROOT_USERNAME
+        - name: USER_NAME
           valueFrom:
-            secretKeyRef: mongo-secret
-            key: mongo-user
-        - name: MONGO_INITDB_ROOT_PASSWORD
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: USER_PWD
           valueFrom:
-            secretKeyRef: mongo-secret
-            key: mongo-password
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password
+        - name: DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: mongo-service
 spec:
+  type: NodePort
   selector:
-    app: mongo 
+    app: mongo
   ports:
     - protocol: TCP
-      port: 3000 
+      port: 3000
       targetPort: 3000
+      nodePort: 30100
