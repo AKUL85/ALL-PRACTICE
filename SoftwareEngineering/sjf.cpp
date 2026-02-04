@@ -26,7 +26,7 @@ int main() {
 
     float totalTAT = 0, totalWT = 0;
 
-    //NON-PREEMPTIVE SJF =================
+   
     if (choice == 1) {
         vector<bool> done(n, false);
         int time = 0, completed = 0;
@@ -60,7 +60,6 @@ int main() {
         }
     }
 
-    // PREEMPTIVE SJF
     else if (choice == 2) {
         vector<int> rt = bt;   
         int time = 0, completed = 0;
