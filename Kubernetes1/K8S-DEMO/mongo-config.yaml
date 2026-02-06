@@ -4,3 +4,4 @@ metadata:
   name: mongo-config
 data:
   mongo-url: mongo-service 
+  
