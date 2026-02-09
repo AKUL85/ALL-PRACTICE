@@ -15,6 +15,13 @@ export default function App() {
         <Text style={styles.buttonText}>Press Me</Text>
         
       </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => setCount(count - 1)}
+      >
+        <Text style={styles.buttonText}>Reduce</Text>
+        
+      </TouchableOpacity>
     </View>
   );
 }
