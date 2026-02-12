@@ -6,11 +6,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Simple Counter</Text>
+      <Text style={styles.title}>Counter</Text>
       <Text style={styles.count}>{count}</Text>
       <TouchableOpacity 
         style={styles.button}
-        onPress={() => setCount(count + 1)}
+        onPress={() => setCount(count + 2)}
       >
         <Text style={styles.buttonText}>Press Me</Text>
         
